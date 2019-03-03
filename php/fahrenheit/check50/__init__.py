@@ -8,7 +8,7 @@ class Fahrenheit(Checks):
         """fahrenheit.php exists"""
         self.require("fahrenheit.php")
     
-    @check("exists")
+    #@check("exists")
         #def compiles(self):
         # """fahrenheit.php compiles"""
         # self.spawn("clang -std=c11 -o fahrenheit fahrenheit.c -lcs50 -lm").exit(0)
