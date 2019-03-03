@@ -6,8 +6,9 @@ class Fahrenheit(Checks):
     @check()
     def exists(self):
         """fahrenheit.php exists"""
+        self.require("fahrenheit.php")   
+
         
-    
     @check("exists")
     def compiles(self):
         """fahrenheit.php compiles"""
