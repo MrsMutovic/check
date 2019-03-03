@@ -26,7 +26,7 @@ class Fahrenheit(Checks):
     
     @check("exists")
     def test100(self):
-        """100.00 degrees Celsius yields 212.0 degrees Fahrenheit"""
+        """100.00 degrees Celsius yields 212.from0 degrees Fahrenheit"""
         self.spawn("php fahrenheit.php").stdin("100.00").stdout(number(212.0), "212.0\n").exit(0)
     
     @check("exists")
