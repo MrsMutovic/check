@@ -6,14 +6,14 @@ class Fahrenheit(Checks):
     @check()
     def exists(self):
         """fahrenheit.php exists"""
-        self.require("fahrenheit.php")
+        
     
     @check("exists")
-        #def compiles(self):
-        # """fahrenheit.php compiles"""
-        # self.spawn("clang -std=c11 -o fahrenheit fahrenheit.c -lcs50 -lm").exit(0)
-    
-        #@check("compiles")
+    def compiles(self):
+        """fahrenheit.php compiles"""
+        self.require("fahrenheit.php")   
+        
+    @check("compiles")
     def test37(self):
         """37 degrees Celsius yields 98.6 degrees Fahrenheit"""
         self.spawn("php fahrenheit.php").stdin("37").stdout(number(98.6), "98.6\n").exit(0)
