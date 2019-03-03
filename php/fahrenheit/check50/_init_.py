@@ -16,7 +16,6 @@ class Fahrenheit(Checks):
         
     @check("compiles")
     def test37(self):
-        
         """37 degrees Celsius yields 98.6 degrees Fahrenheit"""
         expected = "98.6\n"
         actual = self.spawn("php fahrenheit.php").stdin("37").stdout()
