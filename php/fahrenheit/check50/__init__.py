@@ -13,7 +13,7 @@ class Fahrenheit(Checks):
         # """fahrenheit.php compiles"""
         # self.spawn("clang -std=c11 -o fahrenheit fahrenheit.c -lcs50 -lm").exit(0)
     
-        #@check("compiles")
+    @check("compiles")
     def test37(self):
         """37 degrees Celsius yields 98.6 degrees Fahrenheit"""
         self.spawn("php fahrenheit.php").stdin("37").stdout(number(98.6), "98.6\n").exit(0)
