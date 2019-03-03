@@ -1,3 +1,4 @@
+import re
 from check50 import *
 
 
@@ -15,8 +16,15 @@ class Fahrenheit(Checks):
         
     @check("compiles")
     def test37(self):
+        
         """37 degrees Celsius yields 98.6 degrees Fahrenheit"""
-        self.spawn("php fahrenheit.php").stdin("37").stdout(number(98.6), "98.6\n").exit(0)
+        expected = "98.6\n"
+        actual = self.spawn("php fahrenheit.php").stdin("37").stdout()
+        if not re.match(expected, actual):
+            err = Error(Mismatch("98.6\n", actual))
+            if re.match(expected[:-1], actual):
+                err.helpers = "Did you forget a newline (\"\\n\") at the end of your printf string?"
+            raise err
     
     @check("compiles")
     def test0(self):
